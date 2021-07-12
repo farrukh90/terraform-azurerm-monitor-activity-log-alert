@@ -58,16 +58,11 @@ module "alerts" {
 
 ### You can get the following output
 ```
-output "all" {
-  value = azurerm_monitor_activity_log_alert.main.*
+output id {
+  value = module.alerts.id
 }
 
-output "id" {
-  value = azurerm_monitor_activity_log_alert.main.id
-}
-
-
-output "name" {
-  value = azurerm_monitor_activity_log_alert.main.name
+output name {
+  value = module.alerts.name
 }
 ```
