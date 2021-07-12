@@ -8,7 +8,7 @@ provider "azurerm" {
 
 module "rg" {
   source   = "farrukh90/resource-group/azurerm"
-  name     = "rgname"
+  name     = "resource_group_for_peering"
   location = "westus2"
   tags = {
     Name        = "Alert"
@@ -23,7 +23,7 @@ module "actiongroup" {
   depends_on          = [module.rg]
   source              = "farrukh90/monitor-action-group/azurerm"
   resource_group_name = module.rg.name
-  name                = "actiongroup"
+  name                = "actiongroup_for_peering_alert"
   email_address       = "email@gmail.com"
   tags = {
     Name        = "Alert"
@@ -40,7 +40,7 @@ module "alerts" {
   source                          = "farrukh90/monitor-activity-log-alert/azurerm"
   azurerm_monitor_action_group_id = module.actiongroup.name
   resource_group_name             = module.rg.name
-  name                            = "nameasfsdaf"
+  name                            = "peering-alert"
   category                        = "Administrative"
   operation_name                  = "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write"
   webhook_properties = {
