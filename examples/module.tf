@@ -52,9 +52,9 @@ module "alerts" {
 
 
 output id {
-	value = module.alerts.id
+  value = module.alerts.id
 }
 
 output name {
-	value = module.alerts.name
+  value = module.alerts.name
 }
