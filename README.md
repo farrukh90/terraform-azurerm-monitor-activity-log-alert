@@ -46,5 +46,11 @@ module "alerts" {
   webhook_properties = {
     from = "terraform"
   }
+  tags = {
+    Name        = "Alert"
+    Environment = "Dev"
+    Team        = "DevOps"
+    Department  = "IT"
+  }
 }
 ```

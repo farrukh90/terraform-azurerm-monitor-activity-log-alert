@@ -20,4 +20,5 @@ resource "azurerm_monitor_activity_log_alert" "main" {
     action_group_id    = data.azurerm_monitor_action_group.rg.id
     webhook_properties = var.webhook_properties
   }
+  tags = var.tags
 }
