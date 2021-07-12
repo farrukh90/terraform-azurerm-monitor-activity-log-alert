@@ -1,7 +1,3 @@
-# Usage
-
-### This module creates Alert
-```
 provider "azurerm" {
   features {}
 }
@@ -37,7 +33,7 @@ module "actiongroup" {
 
 module "alerts" {
   depends_on                      = [module.rg, module.actiongroup]
-  source                          = "farrukh90/monitor-activity-log-alert/azurerm"
+  source                          = "../"
   azurerm_monitor_action_group_id = module.actiongroup.name
   resource_group_name             = module.rg.name
   name                            = "nameasfsdaf"
@@ -47,4 +43,3 @@ module "alerts" {
     from = "terraform"
   }
 }
-```
